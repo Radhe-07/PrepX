@@ -1,0 +1,320 @@
+<!DOCTYPE html>
+
+<html class="dark" lang="en"><head><meta charset="utf-8"/><meta content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no, viewport-fit=cover" name="viewport"/><meta content="mobile_tab" name="shell-type"/><link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@20..48,100..700,0..1,-50..200" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/><style>@layer base{html,body{width:100vw;margin:0;padding:0;}body{overscroll-behavior:none;background-color:#12131a;color:#e3e1ec;}.pb-safe{padding-bottom:env(safe-area-inset-bottom,0px);}.pt-safe{padding-top:env(safe-area-inset-top,0px);}main>:first-child{margin-top:0!important;}main>:last-child{margin-bottom:0!important;}}::-webkit-scrollbar{display:none;}</style><script src="https://cdn.tailwindcss.com"></script><script id="tailwind-config">tailwind.config = { darkMode: 'class', theme: { extend: { colors: { 'on-secondary-container': '#00616d', 'tertiary': '#fff1e4', 'outline-variant': '#3b4a3f', 'error-container': '#93000a', 'on-error-container': '#ffdad6', 'surface-container-low': '#1a1b22', 'on-background': '#e3e1ec', 'on-tertiary-container': '#835200', 'tertiary-fixed': '#ffddb8', 'primary': '#cdffdc', 'outline': '#849588', 'surface-container-high': '#292931', 'surface': '#12131a', 'surface-bright': '#383941', 'on-tertiary-fixed': '#2a1700', 'on-secondary-fixed': '#001f24', 'on-primary-fixed-variant': '#005231', 'inverse-on-surface': '#2f3038', 'secondary-container': '#00e3fd', 'surface-variant': '#34343c', 'on-tertiary': '#472a00', 'surface-container-lowest': '#0d0e15', 'background': '#12131a', 'on-primary-fixed': '#002111', 'secondary': '#bdf4ff', 'surface-container-highest': '#34343c', 'on-tertiary-fixed-variant': '#653e00', 'surface-dim': '#12131a', 'error': '#ffb4ab', 'inverse-primary': '#006d42', 'surface-container': '#1e1f26', 'on-surface-variant': '#b9cbbd', 'tertiary-container': '#ffce95', 'inverse-surface': '#e3e1ec', 'secondary-fixed-dim': '#00daf3', 'on-secondary-fixed-variant': '#004f58', 'on-primary': '#003920', 'on-secondary': '#00363d', 'secondary-fixed': '#9cf0ff', 'primary-container': '#00f59b', 'on-primary-container': '#006b41', 'surface-tint': '#00e38f', 'tertiary-fixed-dim': '#ffb95f', 'on-surface': '#e3e1ec', 'primary-fixed-dim': '#00e38f', 'primary-fixed': '#53ffab', 'on-error': '#690005' }, borderRadius: { 'DEFAULT': '0.25rem', 'lg': '0.5rem', 'xl': '0.75rem', 'full': '9999px' }, spacing: { 'space-lg': '1.25rem', 'space-xs': '0.25rem', 'space-xl': '1.75rem', 'margin': '1rem', 'gutter': '0.75rem', 'space-sm': '0.5rem', 'space-md': '0.875rem' }, fontFamily: { 'headline-sm': ['Geist', 'sans-serif'], 'display-hero': ['Geist', 'sans-serif'], 'body-sm': ['Geist', 'sans-serif'], 'body-lg': ['Geist', 'sans-serif'], 'display-hero-mobile': ['Geist', 'sans-serif'], 'headline-md': ['Geist', 'sans-serif'], 'telemetry-metric': ['JetBrains Mono', 'monospace'], 'label-micro': ['JetBrains Mono', 'monospace'], 'headline-lg': ['Geist', 'sans-serif'], 'body-md': ['Geist', 'sans-serif'], 'label-tactical': ['JetBrains Mono', 'monospace'] }, fontSize: { 'headline-sm': ['18px', { lineHeight: '24px', letterSpacing: '-0.01em', fontWeight: '600' }], 'display-hero': ['40px', { lineHeight: '48px', letterSpacing: '-0.03em', fontWeight: '700' }], 'body-sm': ['12px', { lineHeight: '16px', fontWeight: '400' }], 'body-lg': ['16px', { lineHeight: '24px', fontWeight: '400' }], 'display-hero-mobile': ['32px', { lineHeight: '38px', letterSpacing: '-0.02em', fontWeight: '700' }], 'headline-md': ['22px', { lineHeight: '28px', letterSpacing: '-0.015em', fontWeight: '600' }], 'telemetry-metric': ['24px', { lineHeight: '28px', letterSpacing: '-0.02em', fontWeight: '600' }], 'label-micro': ['9px', { lineHeight: '12px', letterSpacing: '0.12em', fontWeight: '700' }], 'headline-lg': ['28px', { lineHeight: '34px', letterSpacing: '-0.02em', fontWeight: '600' }], 'body-md': ['14px', { lineHeight: '20px', fontWeight: '400' }], 'label-tactical': ['11px', { lineHeight: '14px', letterSpacing: '0.08em', fontWeight: '600' }] } } } };</script><style>
+    body {
+      min-height: max(884px, 100dvh);
+    }
+  </style>
+  </head><body class="bg-surface font-body-md text-body-md text-on-surface flex flex-col min-h-screen antialiased selection:bg-primary-container selection:text-on-primary-container"><header class="fixed top-0 w-full z-50 bg-surface-container-lowest/85 backdrop-blur-xl pt-safe shadow-[0_1px_8px_rgba(0,0,0,0.4)]"><div class="h-16 px-margin flex items-center justify-between"><div class="flex items-center gap-gutter min-w-0"><img alt="PREPX Logo" class="h-8 w-auto object-contain shrink-0" src="https://lh3.googleusercontent.com/aida/AEtjO1UmcmbEdJrG8MsdS5uibjKkFYxsuQx54eu8TS7KWiIpq2uT8OW8SbL2RNbicT4l6KEwxc6UayHo48lCoO93bA83upqOwY7PIcMRl4tLd60shqB2TijC9RRery_nSHyVGG4G__iNG9Kv02aPtcFIOpYcu1kTITeA_DpztkxVVZUeOQJNNTBKIfvWwsGWlb0pG-8HCjbnw_ucz2iPQr7-1opiUZAZxsnITqoG0TULE3HNt52_-L4G8ZsX0-E"/><div class="flex flex-col min-w-0"><div class="flex items-center gap-space-xs"><span class="font-headline-sm text-headline-sm text-on-surface tracking-tight leading-none">PREPX</span><span class="font-label-micro text-label-micro px-1 py-0.5 rounded bg-surface-container-high text-primary-container uppercase">Pow Gallery</span></div><span class="font-label-micro text-label-micro text-on-surface-variant uppercase truncate">JEE PREPARATION // DAILY LOG</span></div></div><div class="flex items-center gap-space-sm shrink-0"><div class="flex items-center gap-1 px-2 py-1 rounded bg-surface-container-high"><span class="material-symbols-outlined text-[14px] text-tertiary-container">local_fire_department</span><span class="font-label-tactical text-label-tactical text-tertiary-container">6D</span></div><div class="flex items-center gap-space-xs pl-1"><div class="relative flex shrink-0"><img alt="Profile" class="w-8 h-8 rounded-full object-cover" src="https://lh3.googleusercontent.com/aida-public/AB6AXuDQdqoRg0EYZ75r26h7Uzn3PIqZSgZBZyWmu471lCxDXqTnQenXVA3SEYu0vtj_kjapKIuTwfZ6Isgk9On1eDy_tMTWNcm5FdGfCz0ssJA4VFCoGpo7My_Uj0I6eMu3cTE0zurYcTYoGKC-30c74_hePiSgfOYCaqOB5ldft1EU56zU9XH8Up3MqUISER1IuWum_-3qg6LbC5fhRE-8lYpl8jQ3s1pdnwlZt-H921IbAFiMlruBoe2i"/><span class="absolute bottom-0 right-0 w-2.5 h-2.5 rounded-full bg-primary-container ring-2 ring-surface-container-lowest"></span></div><span class="font-label-tactical text-label-tactical text-on-surface hidden xs:inline-block">Vishnu</span></div></div></div></header><main class="flex-1 flex flex-col relative w-full pt-16 pb-20 bg-surface px-margin"><div class="flex flex-col w-full pb-6 space-y-space-md">
+<!-- Mission Control Header Card -->
+<div class="bg-surface-container p-space-md rounded-xl shadow-md flex flex-col space-y-space-sm">
+<div class="flex items-center justify-between">
+<div class="flex flex-col">
+<div class="flex items-center gap-1.5">
+<span class="w-2 h-2 rounded-full bg-primary-container animate-pulse"></span>
+<h2 class="font-headline-sm text-headline-sm text-on-surface">PROOF OF WORK</h2>
+</div>
+<p class="font-label-micro text-label-micro text-on-surface-variant tracking-wider">19 SEP 2024 // 9 VERIFIED WORK PHOTOS</p>
+</div>
+<div class="flex items-center gap-1 px-2 py-1 rounded bg-surface-container-high text-primary-container">
+<span class="material-symbols-outlined text-[15px]" style="font-variation-settings: 'FILL' 1;">verified</span>
+<span class="font-label-tactical text-label-tactical">AUDITED</span>
+</div>
+</div>
+<!-- Date Strip Navigation -->
+<div class="grid grid-cols-3 gap-1.5 bg-surface-container-lowest p-1 rounded-lg text-center">
+<button class="flex items-center justify-center gap-1 py-1.5 px-2 rounded bg-surface-container-low text-on-surface-variant hover:text-on-surface transition-colors active:scale-95">
+<span class="material-symbols-outlined text-[14px]">arrow_back_ios</span>
+<span class="font-label-tactical text-label-tactical">18 SEP</span>
+</button>
+<button class="flex items-center justify-center gap-1 py-1.5 px-2 rounded bg-primary-container text-on-primary-container shadow-sm font-semibold">
+<span class="font-label-tactical text-label-tactical">TODAY: 19 (9)</span>
+</button>
+<button class="flex items-center justify-center gap-1 py-1.5 px-2 rounded bg-surface-container-low text-on-surface-variant hover:text-on-surface transition-colors active:scale-95">
+<span class="material-symbols-outlined text-[14px]">calendar_today</span>
+<span class="font-label-tactical text-label-tactical">CALENDAR</span>
+</button>
+</div>
+<!-- Quick Operations Command Strip -->
+<div class="flex items-center gap-2 pt-1">
+<button class="flex-1 flex items-center justify-center gap-1.5 py-2.5 px-3 rounded-lg bg-primary-container text-on-primary-container font-headline-sm text-[13px] active:scale-[0.98] transition-transform shadow-md" id="openUploadBtn">
+<span class="material-symbols-outlined text-[18px]">add_a_photo</span>
+<span>ADD WORK PHOTO</span>
+</button>
+<button class="flex items-center justify-center gap-1 py-2.5 px-3 rounded-lg bg-surface-container-high text-on-surface hover:text-primary-container font-label-tactical text-label-tactical active:scale-[0.98] transition-colors" id="selectToggleBtn">
+<span class="material-symbols-outlined text-[16px]">checklist</span>
+<span>SELECT</span>
+</button>
+</div>
+</div>
+<!-- Telemetry Filter Chips -->
+<div class="flex items-center gap-1.5 overflow-x-auto pb-1 no-scrollbar">
+<button class="filter-chip active shrink-0 flex items-center gap-1.5 px-3 py-1.5 rounded-full bg-primary-container text-on-primary-container font-label-tactical text-label-tactical" data-subject="all">
+<span class="w-1.5 h-1.5 rounded-full bg-on-primary-container"></span>
+<span>ALL PHOTOS (9)</span>
+</button>
+<button class="filter-chip shrink-0 flex items-center gap-1.5 px-3 py-1.5 rounded-full bg-surface-container-high text-on-surface-variant hover:text-on-surface font-label-tactical text-label-tactical" data-subject="maths">
+<span class="w-1.5 h-1.5 rounded-full bg-secondary-container"></span>
+<span>MATHS (4)</span>
+</button>
+<button class="filter-chip shrink-0 flex items-center gap-1.5 px-3 py-1.5 rounded-full bg-surface-container-high text-on-surface-variant hover:text-on-surface font-label-tactical text-label-tactical" data-subject="physics">
+<span class="w-1.5 h-1.5 rounded-full bg-primary-fixed"></span>
+<span>PHYSICS (3)</span>
+</button>
+<button class="filter-chip shrink-0 flex items-center gap-1.5 px-3 py-1.5 rounded-full bg-surface-container-high text-on-surface-variant hover:text-on-surface font-label-tactical text-label-tactical" data-subject="chem">
+<span class="w-1.5 h-1.5 rounded-full bg-tertiary-container"></span>
+<span>CHEMISTRY (2)</span>
+</button>
+</div>
+<!-- 2-Column Responsive Image Grid -->
+<div class="grid grid-cols-2 gap-space-sm" id="powGalleryGrid">
+<!-- Card 1 -->
+<div class="pow-card group relative flex flex-col bg-surface-container rounded-xl overflow-hidden shadow-sm cursor-pointer" data-id="1" data-subject="maths" data-tag="Maths // HW" data-time="18:42 PM" data-title="Calculus // Definite Integrals Drill #12">
+<div class="relative w-full aspect-[4/5] bg-surface-container-lowest overflow-hidden">
+<img class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-300" data-alt="Close-up macro shot of crisp handwritten advanced calculus and definite integration problems on a grid notebook with neat ballpoint ink, green highlighter annotations, and step-by-step mathematical proofs under clean desk lamp lighting in a high-tech dark study room." src="https://lh3.googleusercontent.com/aida-public/AB6AXuAbisPMPqMt_pYPJZe-wXfyf8eFbbIzEtXb23_IAqI_QotYI4ybbL-KllH72UXNKos1hgjkZLB3KZFAXeHR80xarFLYEsMysyuCUxO4NH8ExXhdIyhrwdqzlQaFg1urPhnGzLqk3qib_kqLMgi3Rl_jiGwzlFxH9sk0md9IiLFGo6NgtwwZh9AoOXR3ZAb9a5-RGklYg-tEgWqpy8-zmLHjBBuW9ceg09jzf8OZetudsiitCpDeewPz"/>
+<div class="absolute inset-0 bg-gradient-to-t from-surface-container-lowest/90 via-surface-container-lowest/20 to-transparent"></div>
+<div class="absolute top-2 left-2 flex items-center gap-1 bg-surface-container-lowest/80 backdrop-blur-md px-1.5 py-0.5 rounded text-secondary-container font-label-micro text-label-micro uppercase">
+<span class="w-1.5 h-1.5 rounded-full bg-secondary-container"></span>
+          MATHS // HW
+        </div>
+<div class="absolute top-2 right-2 w-6 h-6 rounded-full bg-surface-container-lowest/80 backdrop-blur-md flex items-center justify-center text-on-surface-variant opacity-80 group-hover:opacity-100 group-hover:text-primary-container transition-colors">
+<span class="material-symbols-outlined text-[15px]">fullscreen</span>
+</div>
+<div class="absolute bottom-2 left-2 right-2 flex items-center justify-between">
+<span class="font-telemetry-metric text-[11px] text-on-surface tracking-tight">18:42 PM</span>
+<span class="font-label-micro text-label-micro text-primary-container bg-surface-container-high/90 px-1 py-0.5 rounded">VERIFIED</span>
+</div>
+</div>
+<div class="p-2 flex flex-col bg-surface-container">
+<span class="font-body-sm text-body-sm text-on-surface font-semibold truncate">Definite Integrals Drill #12</span>
+<span class="font-label-micro text-label-micro text-on-surface-variant truncate">4 Pages // Q1-Q18 Finished</span>
+</div>
+</div>
+<!-- Card 2 -->
+<div class="pow-card group relative flex flex-col bg-surface-container rounded-xl overflow-hidden shadow-sm cursor-pointer" data-id="2" data-subject="physics" data-tag="Physics // Notes" data-time="19:15 PM" data-title="Physics // Rotational Dynamics Moment of Inertia">
+<div class="relative w-full aspect-[4/5] bg-surface-container-lowest overflow-hidden">
+<img class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-300" data-alt="Engineering study notes featuring precise free-body physics diagrams, rotational vectors, cylinders rolling down inclined planes, angular momentum calculations drawn with a fine black pen on ivory dot-matrix paper, sharp scientific annotations in neon accents." src="https://lh3.googleusercontent.com/aida-public/AB6AXuB1367leTBJpLSPkukTBmIoOU7LgH4poPmhl4RspOarrkHhUPW1dFusKD046MYmU2MIPCPqe7D_4Ct0p1N4jFugwCUSbEVO9ttXmKaHmrFrU4Ma_RLXDy-Bp65oVCNBzZfW1vOSne5TzhfJ1UOyb8mM9tafGyrmseAdcnA1p6OalXWJOAdCdu8BxcsD5xO-NHIBYMriuruVDkhNmMwF7Gx_2QTU3pg1qIlX5QUuRYwM2jfBKdq59Pi1"/>
+<div class="absolute inset-0 bg-gradient-to-t from-surface-container-lowest/90 via-surface-container-lowest/20 to-transparent"></div>
+<div class="absolute top-2 left-2 flex items-center gap-1 bg-surface-container-lowest/80 backdrop-blur-md px-1.5 py-0.5 rounded text-primary-fixed font-label-micro text-label-micro uppercase">
+<span class="w-1.5 h-1.5 rounded-full bg-primary-fixed"></span>
+          PHYSICS // NOTES
+        </div>
+<div class="absolute top-2 right-2 w-6 h-6 rounded-full bg-surface-container-lowest/80 backdrop-blur-md flex items-center justify-center text-on-surface-variant opacity-80 group-hover:opacity-100 group-hover:text-primary-container transition-colors">
+<span class="material-symbols-outlined text-[15px]">fullscreen</span>
+</div>
+<div class="absolute bottom-2 left-2 right-2 flex items-center justify-between">
+<span class="font-telemetry-metric text-[11px] text-on-surface tracking-tight">19:15 PM</span>
+<span class="font-label-micro text-label-micro text-primary-container bg-surface-container-high/90 px-1 py-0.5 rounded">VERIFIED</span>
+</div>
+</div>
+<div class="p-2 flex flex-col bg-surface-container">
+<span class="font-body-sm text-body-sm text-on-surface font-semibold truncate">Rotational Dynamics #4</span>
+<span class="font-label-micro text-label-micro text-on-surface-variant truncate">Torque balance free-body</span>
+</div>
+</div>
+<!-- Card 3 (Featured in simulator modal) -->
+<div class="pow-card group relative flex flex-col bg-surface-container rounded-xl overflow-hidden shadow-sm cursor-pointer" data-id="3" data-subject="physics" data-tag="Physics // Numerical" data-time="20:02 PM" data-title="Rotational Dynamics Problem Set 4">
+<div class="relative w-full aspect-[4/5] bg-surface-container-lowest overflow-hidden">
+<img class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-300" data-alt="Dense handwritten numerical solving sheet with multiple equations, algebraic derivations, cross products, and underlined final numerical answers with units for JEE Advanced physics exam prep on ruled paper." src="https://lh3.googleusercontent.com/aida-public/AB6AXuDgBkChJwAcr1E7T3uCwBJheVd5PS_8eNcbcYfQazLPuqodyDWF-6KpVB6swi2jMGmOSb1886ZBsALUP5WeqJciBOV_TeGXCUCUcoNhUOXEbLHOQr1vKNFb443LgAXxwVj_Tor7f2a6DgiYSWRAZLgMFy46w5dklU9qmta6SE_fkqmU81nVVWvAAUTrI5wRhst8QB2p90WhHb2pSbihl1q-vxHFyMvvKt6XH7N-9OuyaOoZLAvKaEq1"/>
+<div class="absolute inset-0 bg-gradient-to-t from-surface-container-lowest/90 via-surface-container-lowest/20 to-transparent"></div>
+<div class="absolute top-2 left-2 flex items-center gap-1 bg-surface-container-lowest/80 backdrop-blur-md px-1.5 py-0.5 rounded text-primary-container font-label-micro text-label-micro uppercase">
+<span class="w-1.5 h-1.5 rounded-full bg-primary-container"></span>
+          PHYSICS // NUMERICAL
+        </div>
+<div class="absolute top-2 right-2 w-6 h-6 rounded-full bg-surface-container-lowest/80 backdrop-blur-md flex items-center justify-center text-primary-container">
+<span class="material-symbols-outlined text-[15px]">zoom_in</span>
+</div>
+<div class="absolute bottom-2 left-2 right-2 flex items-center justify-between">
+<span class="font-telemetry-metric text-[11px] text-on-surface tracking-tight">20:02 PM</span>
+<span class="font-label-micro text-label-micro text-primary-container bg-surface-container-high/90 px-1 py-0.5 rounded">VERIFIED</span>
+</div>
+</div>
+<div class="p-2 flex flex-col bg-surface-container">
+<span class="font-body-sm text-body-sm text-on-surface font-semibold truncate">Rigid Body Collision Drill</span>
+<span class="font-label-micro text-label-micro text-on-surface-variant truncate">Angular impulse solved</span>
+</div>
+</div>
+<!-- Card 4 -->
+<div class="pow-card group relative flex flex-col bg-surface-container rounded-xl overflow-hidden shadow-sm cursor-pointer" data-id="4" data-subject="chem" data-tag="Chem // Doubts" data-time="20:48 PM" data-title="Organic Reactions // Aldol Condensation">
+<div class="relative w-full aspect-[4/5] bg-surface-container-lowest overflow-hidden">
+<img class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-300" data-alt="Detailed organic chemistry study sheet showcasing cyclic molecular diagrams, chemical curly arrow reaction mechanisms for aldol condensation and electrophilic aromatic substitution written in colorful technical drafting pens." src="https://lh3.googleusercontent.com/aida-public/AB6AXuCVh5TqSjHiCv_LGoe6_h2s7LR7V1k1a62l1UeqlteVKCMeVHoUrNQbUv6SdS5snb5Ft2vW_FaEPlmNCBXJi0hYyWJlR25SaxIZwdVqItzutLJStZp2nL4mmSJtVJubo0Vz_wFSX_7GT08XlBFnv6v58BprE1BRxJAAax3yIKM92EtTiCK66sH-U6q_BG97obmlXE7IkVlosAScSqYSM4iY5LfyJMwWFjr0zx43Ublkgb8y4-fd8Mr0"/>
+<div class="absolute inset-0 bg-gradient-to-t from-surface-container-lowest/90 via-surface-container-lowest/20 to-transparent"></div>
+<div class="absolute top-2 left-2 flex items-center gap-1 bg-surface-container-lowest/80 backdrop-blur-md px-1.5 py-0.5 rounded text-tertiary-container font-label-micro text-label-micro uppercase">
+<span class="w-1.5 h-1.5 rounded-full bg-tertiary-container"></span>
+          CHEM // DOUBTS
+        </div>
+<div class="absolute top-2 right-2 w-6 h-6 rounded-full bg-surface-container-lowest/80 backdrop-blur-md flex items-center justify-center text-on-surface-variant opacity-80 group-hover:opacity-100 group-hover:text-primary-container transition-colors">
+<span class="material-symbols-outlined text-[15px]">fullscreen</span>
+</div>
+<div class="absolute bottom-2 left-2 right-2 flex items-center justify-between">
+<span class="font-telemetry-metric text-[11px] text-on-surface tracking-tight">20:48 PM</span>
+<span class="font-label-micro text-label-micro text-primary-container bg-surface-container-high/90 px-1 py-0.5 rounded">VERIFIED</span>
+</div>
+</div>
+<div class="p-2 flex flex-col bg-surface-container">
+<span class="font-body-sm text-body-sm text-on-surface font-semibold truncate">Aldol &amp; Cannizzaro Review</span>
+<span class="font-label-micro text-label-micro text-on-surface-variant truncate">Enolate ion pathway marked</span>
+</div>
+</div>
+<!-- Card 5 -->
+<div class="pow-card group relative flex flex-col bg-surface-container rounded-xl overflow-hidden shadow-sm cursor-pointer" data-id="5" data-subject="maths" data-tag="Maths // Notes" data-time="21:12 PM" data-title="Matrices &amp; Determinants // Cayley-Hamilton">
+<div class="relative w-full aspect-[4/5] bg-surface-container-lowest overflow-hidden">
+<img class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-300" data-alt="High contrast photograph of handwritten matrices calculations, eigenvalues, and determinant properties with matrix brackets and boxed solutions on a clean dark wooden study table beside a digital timer." src="https://lh3.googleusercontent.com/aida-public/AB6AXuAtktgGI-_1WIESQs97MW1bXetfmljDqQr9QUEayaXDvJajv5em-LUXImDX_f_dZTHbSVveWYTN0GyS5zVYuvDSyqIqANd3vx5Ie7VLzwThMJpvzkBswE4Uwno6VDFJwpPhzkFTLzKtG2IwCrlOpLBfZxPzRMmQ-D7znslb4SuSq3K4zW_QD8wql79nZnNMreikCcnUHY0Y2eomzPPUbX7xZvY7tb-MfN3FcbZr9Wmy-1wM4JT48soe"/>
+<div class="absolute inset-0 bg-gradient-to-t from-surface-container-lowest/90 via-surface-container-lowest/20 to-transparent"></div>
+<div class="absolute top-2 left-2 flex items-center gap-1 bg-surface-container-lowest/80 backdrop-blur-md px-1.5 py-0.5 rounded text-secondary-container font-label-micro text-label-micro uppercase">
+<span class="w-1.5 h-1.5 rounded-full bg-secondary-container"></span>
+          MATHS // NOTES
+        </div>
+<div class="absolute top-2 right-2 w-6 h-6 rounded-full bg-surface-container-lowest/80 backdrop-blur-md flex items-center justify-center text-on-surface-variant opacity-80 group-hover:opacity-100 group-hover:text-primary-container transition-colors">
+<span class="material-symbols-outlined text-[15px]">fullscreen</span>
+</div>
+<div class="absolute bottom-2 left-2 right-2 flex items-center justify-between">
+<span class="font-telemetry-metric text-[11px] text-on-surface tracking-tight">21:12 PM</span>
+<span class="font-label-micro text-label-micro text-primary-container bg-surface-container-high/90 px-1 py-0.5 rounded">VERIFIED</span>
+</div>
+</div>
+<div class="p-2 flex flex-col bg-surface-container">
+<span class="font-body-sm text-body-sm text-on-surface font-semibold truncate">3x3 Determinant Proofs</span>
+<span class="font-label-micro text-label-micro text-on-surface-variant truncate">Cramer rule edge cases</span>
+</div>
+</div>
+<!-- Card 6 -->
+<div class="pow-card group relative flex flex-col bg-surface-container rounded-xl overflow-hidden shadow-sm cursor-pointer" data-id="6" data-subject="chem" data-tag="Chem // HW" data-time="21:55 PM" data-title="Thermodynamics // Gibbs Free Energy">
+<div class="relative w-full aspect-[4/5] bg-surface-container-lowest overflow-hidden">
+<img class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-300" data-alt="Physical chemistry thermodynamic graphs, enthalpy versus entropy curve sketches, handwritten delta G calculations and spontaneity condition charts handwritten on paper with precise technical pen strokes." src="https://lh3.googleusercontent.com/aida-public/AB6AXuA65b_155hSb4XPf7a38etzwu9iHVN9ThgdgJmsFwYEEulFPf5OBSQdsfL6yveuRtmicmfbYmqdk9B5XF0wxbokAZv2oHdgk0vtVO_Hz11V7AmD-YdeMvbAjORUmIEygpSlTlFuAVMZXJ0x0-V8L7oXS0A9IJikdSwlz1m1_8WymVB2QSXOk4xfPNDQINlzLxomaIcmYdI9D0Yy-hI0Eh1HXiEMj1m8_uryAsebq4wZTdxAg2waPdCY"/>
+<div class="absolute inset-0 bg-gradient-to-t from-surface-container-lowest/90 via-surface-container-lowest/20 to-transparent"></div>
+<div class="absolute top-2 left-2 flex items-center gap-1 bg-surface-container-lowest/80 backdrop-blur-md px-1.5 py-0.5 rounded text-tertiary-container font-label-micro text-label-micro uppercase">
+<span class="w-1.5 h-1.5 rounded-full bg-tertiary-container"></span>
+          CHEM // HW
+        </div>
+<div class="absolute top-2 right-2 w-6 h-6 rounded-full bg-surface-container-lowest/80 backdrop-blur-md flex items-center justify-center text-on-surface-variant opacity-80 group-hover:opacity-100 group-hover:text-primary-container transition-colors">
+<span class="material-symbols-outlined text-[15px]">fullscreen</span>
+</div>
+<div class="absolute bottom-2 left-2 right-2 flex items-center justify-between">
+<span class="font-telemetry-metric text-[11px] text-on-surface tracking-tight">21:55 PM</span>
+<span class="font-label-micro text-label-micro text-primary-container bg-surface-container-high/90 px-1 py-0.5 rounded">VERIFIED</span>
+</div>
+</div>
+<div class="p-2 flex flex-col bg-surface-container">
+<span class="font-body-sm text-body-sm text-on-surface font-semibold truncate">Carnot &amp; Entropy Calculations</span>
+<span class="font-label-micro text-label-micro text-on-surface-variant truncate">JEE 2023 PyQ Set Completed</span>
+</div>
+</div>
+</div>
+<!-- End of Stream Tactical Audit Pill -->
+<div class="p-3 rounded-lg bg-surface-container-low flex items-center justify-between">
+<div class="flex items-center gap-2">
+<span class="material-symbols-outlined text-[18px] text-primary-container">lock</span>
+<span class="font-label-micro text-label-micro text-on-surface-variant">BLOCKCHAIN-TIMESTAMPED STUDY INTEGRITY // SHA-256</span>
+</div>
+<span class="font-label-tactical text-label-tactical text-primary-container">100% AUDITED</span>
+</div>
+<!-- Full-screen Modal / Lightbox Simulator (Initially Hidden, Toggleable) -->
+<div class="hidden fixed inset-0 z-50 flex flex-col justify-between bg-surface-container-lowest/95 backdrop-blur-xl p-4" id="lightboxModal">
+<!-- Top Action Bar -->
+<div class="flex items-center justify-between pt-safe">
+<div class="flex flex-col">
+<span class="font-label-micro text-label-micro text-primary-container uppercase tracking-wider" id="lightboxCounter">PHOTO 3 OF 9</span>
+<h3 class="font-headline-sm text-[15px] text-on-surface truncate max-w-[220px]" id="lightboxTitle">Rotational Dynamics Problem Set 4</h3>
+</div>
+<div class="flex items-center gap-2">
+<button class="w-9 h-9 rounded-lg bg-surface-container-high flex items-center justify-center text-on-surface hover:text-primary-container active:scale-95 transition-colors">
+<span class="material-symbols-outlined text-[18px]">share</span>
+</button>
+<button class="w-9 h-9 rounded-lg bg-surface-container-high flex items-center justify-center text-on-surface hover:text-primary-container active:scale-95 transition-colors">
+<span class="material-symbols-outlined text-[18px]">download</span>
+</button>
+<button class="w-9 h-9 rounded-lg bg-surface-container-highest flex items-center justify-center text-on-surface hover:text-error active:scale-95 transition-colors" id="closeLightboxBtn">
+<span class="material-symbols-outlined text-[18px]">close</span>
+</button>
+</div>
+</div>
+<!-- Active Image & Watermark Container -->
+<div class="relative flex-1 my-4 flex items-center justify-center overflow-hidden rounded-xl bg-surface-container-low shadow-xl">
+<img class="w-full h-full object-contain" data-alt="Full screen view of physics problem sheet with complex mathematical diagrams, free body diagrams, and handwritten step-by-step calculus solutions on lined paper, crisp contrast in high detail." id="lightboxImage" src="https://lh3.googleusercontent.com/aida-public/AB6AXuDllqHhCurBsPp6979SWu96dk0CA3NAEoNCiFxV--Q2zFsZzPNzF9_dRvhiXjth5Zm0rcL81841g7pcVUiptzKKbIgI_y2xya8QyhzCVI8mn747InV_hVbsobYHODDWHadJzKP0rpIEt4c7tL66wr7FCqTOGmlF3pQlXOdgYf47oiIXkBbj7xCimZnmkKGox7jQEELkSPIdksW9FkaJx2rgsndm0cs2p2qZg8zCPbLtAhQHN90ICQUg"/>
+<!-- Verified PREPX Watermark Overlay -->
+<div class="absolute bottom-3 left-3 right-3 flex items-center justify-between pointer-events-none bg-surface-container-lowest/80 backdrop-blur-md px-3 py-2 rounded-lg">
+<div class="flex items-center gap-1.5">
+<span class="material-symbols-outlined text-[16px] text-primary-container" style="font-variation-settings: 'FILL' 1;">verified_user</span>
+<span class="font-label-tactical text-[10px] text-on-surface tracking-wider">VERIFIED BY PREPX // VISHNU</span>
+</div>
+<span class="font-telemetry-metric text-[10px] text-primary-container" id="lightboxTime">20:02:14 PM</span>
+</div>
+<!-- Navigation Arrows -->
+<button class="absolute left-2 top-1/2 -translate-y-1/2 w-8 h-8 rounded-full bg-surface-container-lowest/70 backdrop-blur-md flex items-center justify-center text-on-surface active:scale-90" id="prevPhoto">
+<span class="material-symbols-outlined text-[18px]">chevron_left</span>
+</button>
+<button class="absolute right-2 top-1/2 -translate-y-1/2 w-8 h-8 rounded-full bg-surface-container-lowest/70 backdrop-blur-md flex items-center justify-center text-on-surface active:scale-90" id="nextPhoto">
+<span class="material-symbols-outlined text-[18px]">chevron_right</span>
+</button>
+</div>
+<!-- Bottom Metadata Details -->
+<div class="bg-surface-container p-3 rounded-xl flex items-center justify-between pb-safe">
+<div class="flex flex-col">
+<span class="font-label-micro text-label-micro text-on-surface-variant">SESSION ID // TOPIC</span>
+<span class="font-body-sm text-body-sm text-on-surface font-semibold" id="lightboxTag">PHYSICS // NUMERICAL SET</span>
+</div>
+<div class="flex items-center gap-2">
+<span class="px-2 py-1 rounded bg-surface-container-high font-label-tactical text-label-tactical text-secondary-container">100% LEGIBLE</span>
+<button class="px-3 py-1 rounded bg-primary-container text-on-primary-container font-label-tactical text-label-tactical font-semibold">INSPECT</button>
+</div>
+</div>
+</div>
+</div>
+<script>
+  // Filter Functionality
+  const chips = document.querySelectorAll('.filter-chip');
+  const cards = document.querySelectorAll('.pow-card');
+
+  chips.forEach(chip => {
+    chip.addEventListener('click', () => {
+      chips.forEach(c => {
+        c.classList.remove('bg-primary-container', 'text-on-primary-container');
+        c.classList.add('bg-surface-container-high', 'text-on-surface-variant');
+      });
+      chip.classList.remove('bg-surface-container-high', 'text-on-surface-variant');
+      chip.classList.add('bg-primary-container', 'text-on-primary-container');
+
+      const subject = chip.getAttribute('data-subject');
+      cards.forEach(card => {
+        if (subject === 'all' || card.getAttribute('data-subject') === subject) {
+          card.style.display = 'flex';
+        } else {
+          card.style.display = 'none';
+        }
+      });
+    });
+  });
+
+  // Modal / Lightbox Simulator
+  const lightboxModal = document.getElementById('lightboxModal');
+  const closeLightboxBtn = document.getElementById('closeLightboxBtn');
+  const lightboxCounter = document.getElementById('lightboxCounter');
+  const lightboxTitle = document.getElementById('lightboxTitle');
+  const lightboxTime = document.getElementById('lightboxTime');
+  const lightboxTag = document.getElementById('lightboxTag');
+
+  cards.forEach((card, index) => {
+    card.addEventListener('click', () => {
+      lightboxCounter.textContent = `PHOTO ${index + 1} OF ${cards.length}`;
+      lightboxTitle.textContent = card.getAttribute('data-title');
+      lightboxTime.textContent = card.getAttribute('data-time') + ' // AUDIT #883';
+      lightboxTag.textContent = card.getAttribute('data-tag');
+      lightboxModal.classList.remove('hidden');
+    });
+  });
+
+  closeLightboxBtn.addEventListener('click', () => {
+    lightboxModal.classList.add('hidden');
+  });
+
+  // Simple selector toggle toast effect
+  const selectToggleBtn = document.getElementById('selectToggleBtn');
+  let selectMode = false;
+  selectToggleBtn.addEventListener('click', () => {
+    selectMode = !selectMode;
+    selectToggleBtn.classList.toggle('bg-primary-container', selectMode);
+    selectToggleBtn.classList.toggle('text-on-primary-container', selectMode);
+  });
+</script></main><nav class="fixed bottom-0 w-full z-50 pb-safe bg-surface-container-lowest/90 backdrop-blur-xl shadow-[0_-1px_12px_rgba(0,0,0,0.5)]" data-active-classes="text-primary-container font-semibold"><div class="flex justify-around items-center h-20 px-gutter"><a class="flex flex-col items-center justify-center gap-1 min-w-[44px] min-h-[44px] px-space-xs text-on-surface-variant hover:text-on-surface transition-colors duration-150 group" data-path="today" href="#"><span class="material-symbols-outlined text-[22px] group-hover:scale-105 transition-transform">timer</span><span class="font-label-tactical text-label-tactical">Today</span></a><a class="flex flex-col items-center justify-center gap-1 min-w-[44px] min-h-[44px] px-space-xs text-on-surface-variant hover:text-on-surface transition-colors duration-150 group" data-path="history" href="#"><span class="material-symbols-outlined text-[22px] group-hover:scale-105 transition-transform">event_note</span><span class="font-label-tactical text-label-tactical">History</span></a><a class="flex flex-col items-center justify-center gap-1 min-w-[44px] min-h-[44px] px-space-xs text-on-surface-variant hover:text-on-surface transition-colors duration-150 group" data-path="progress" href="#"><span class="material-symbols-outlined text-[22px] group-hover:scale-105 transition-transform">monitoring</span><span class="font-label-tactical text-label-tactical">Progress</span></a><a aria-current="page" class="flex flex-col items-center justify-center gap-1 min-w-[44px] min-h-[44px] px-space-xs transition-colors duration-150 group text-primary-container font-semibold" data-path="pow-gallery" href="#"><span class="material-symbols-outlined text-[22px] group-hover:scale-105 transition-transform">photo_library</span><span class="font-label-tactical text-label-tactical">POW</span></a></div></nav></body></html>
