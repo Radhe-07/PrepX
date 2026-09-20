@@ -25,7 +25,7 @@ export default async function RootLayout({ children }: LayoutProps<"/">) {
   const user = await getCurrentUser();
 
   if (!user) {
-    redirect("/login");
+    redirect("api/auth/login");
   }
   return (
     <html
