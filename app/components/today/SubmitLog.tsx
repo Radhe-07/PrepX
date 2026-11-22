@@ -2,9 +2,6 @@
 
 interface SubmitLogProps {
   completedTasks: number;
-}
-interface SubmitLogProps {
-  completedTasks: number;
   onSubmit: () => void;
   saving: boolean;
 }

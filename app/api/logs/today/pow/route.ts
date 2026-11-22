@@ -5,6 +5,8 @@ import { getTodayIST } from "@/lib/date";
 import cloudinary from "@/lib/cloudinary";
 
 const MAX_FILES = 15;
+const MAX_FILE_SIZE = 10 * 1024 * 1024;
+const MAX_TOTAL_SIZE = 50 * 1024 * 1024;
 
 export async function POST(request: Request) {
   try {
@@ -62,6 +64,30 @@ export async function POST(request: Request) {
       );
     }
 
+    let totalSize = 0;
+    for (const file of files) {
+      if (!file.type.startsWith("image/")) {
+        return NextResponse.json(
+          { error: "Only image files are allowed" },
+          { status: 400 }
+        );
+      }
+      if (file.size === 0 || file.size > MAX_FILE_SIZE) {
+        return NextResponse.json(
+          { error: "Each image must be smaller than 10 MB" },
+          { status: 400 }
+        );
+      }
+      totalSize += file.size;
+    }
+
+    if (totalSize > MAX_TOTAL_SIZE) {
+      return NextResponse.json(
+        { error: "The combined image size must be smaller than 50 MB" },
+        { status: 400 }
+      );
+    }
+
     const existingCount = await prisma.proofOfWork.count({
       where: {
         dailyLogId: log.id,
@@ -78,10 +104,6 @@ export async function POST(request: Request) {
     }
 
     const uploadFile = async (file: File) => {
-      if (!file.type.startsWith("image/")) {
-        throw new Error("Only image files are allowed");
-      }
-
       const bytes = await file.arrayBuffer();
       const buffer = Buffer.from(bytes);
 

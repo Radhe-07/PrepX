@@ -1,6 +1,6 @@
 "use client";
 
-import { useEffect, useMemo, useState } from "react";
+import { useEffect, useMemo, useRef, useState } from "react";
 import TelemetryHeader from "./TelemetryHeader";
 import ProgressCard from "./ProgressCard";
 import ClassAttendance from "./ClassAttendance";
@@ -22,6 +22,7 @@ type NoteState = {
 
 type TodayLog = {
   classAttended: boolean;
+  proofOfWork?: Array<{ id: string; url: string }>;
 
   mathRevision: boolean;
   mathRevisionNote?: string | null;
@@ -99,83 +100,89 @@ export default function TodayClient() {
   const [loading, setLoading] = useState(true);
   const [saving, setSaving] = useState(false);
   const [powFiles, setPowFiles] = useState<File[]>([]);
+  const [uploadedProofs, setUploadedProofs] = useState<
+    Array<{ id: string; url: string }>
+  >([]);
+  const submittingRef = useRef(false);
 
   const handleSubmit = async () => {
-  setSaving(true);
+    if (submittingRef.current) return;
+    submittingRef.current = true;
+    setSaving(true);
+    const filesToUpload = powFiles;
 
-  try {
-    // 1. Save today's log
-    const response = await fetch("/api/logs/today", {
-      method: "PUT",
-      headers: {
-        "Content-Type": "application/json",
-      },
-      body: JSON.stringify({
-        classAttended,
-
-        mathRevision: tasks.math.revision,
-        mathRevisionNote: notes.math.revision,
-        mathHomework: tasks.math.homework,
-        mathHomeworkNote: notes.math.homework,
-        mathDoubt: tasks.math.doubt,
-        mathDoubtNote: notes.math.doubt,
-
-        physicsRevision: tasks.physics.revision,
-        physicsRevisionNote: notes.physics.revision,
-        physicsHomework: tasks.physics.homework,
-        physicsHomeworkNote: notes.physics.homework,
-        physicsDoubt: tasks.physics.doubt,
-        physicsDoubtNote: notes.physics.doubt,
-
-        chemistryRevision: tasks.chemistry.revision,
-        chemistryRevisionNote: notes.chemistry.revision,
-        chemistryHomework: tasks.chemistry.homework,
-        chemistryHomeworkNote: notes.chemistry.homework,
-        chemistryDoubt: tasks.chemistry.doubt,
-        chemistryDoubtNote: notes.chemistry.doubt,
-      }),
-    });
-
-    const data = await response.json();
-
-    if (!response.ok) {
-      throw new Error(data.error || "Failed to save today's log");
-    }
-
-    // 2. Upload POW files
-    if (powFiles.length > 0) {
-      const formData = new FormData();
-
-      powFiles.forEach((file) => {
-        formData.append("files", file);
+    try {
+      const response = await fetch("/api/logs/today", {
+        method: "PUT",
+        headers: {
+          "Content-Type": "application/json",
+        },
+        body: JSON.stringify({
+          classAttended,
+          mathRevision: tasks.math.revision,
+          mathRevisionNote: notes.math.revision,
+          mathHomework: tasks.math.homework,
+          mathHomeworkNote: notes.math.homework,
+          mathDoubt: tasks.math.doubt,
+          mathDoubtNote: notes.math.doubt,
+          physicsRevision: tasks.physics.revision,
+          physicsRevisionNote: notes.physics.revision,
+          physicsHomework: tasks.physics.homework,
+          physicsHomeworkNote: notes.physics.homework,
+          physicsDoubt: tasks.physics.doubt,
+          physicsDoubtNote: notes.physics.doubt,
+          chemistryRevision: tasks.chemistry.revision,
+          chemistryRevisionNote: notes.chemistry.revision,
+          chemistryHomework: tasks.chemistry.homework,
+          chemistryHomeworkNote: notes.chemistry.homework,
+          chemistryDoubt: tasks.chemistry.doubt,
+          chemistryDoubtNote: notes.chemistry.doubt,
+        }),
       });
 
-      const powResponse = await fetch("/api/logs/today/pow", {
-        method: "POST",
-        body: formData,
-      });
+      const data = await response.json();
+      if (!response.ok) {
+        throw new Error(data.error || "Failed to save today's log");
+      }
 
-      const powData = await powResponse.json();
+      if (filesToUpload.length > 0) {
+        const formData = new FormData();
+        filesToUpload.forEach((file) => formData.append("files", file));
 
-      if (!powResponse.ok) {
-        throw new Error(
-          powData.error || "Failed to upload proof of work"
+        const powResponse = await fetch("/api/logs/today/pow", {
+          method: "POST",
+          body: formData,
+        });
+        const powData = await powResponse.json();
+
+        if (!powResponse.ok) {
+          throw new Error(powData.error || "Failed to upload proof of work");
+        }
+
+        const newProofs = Array.isArray(powData.proofOfWork)
+          ? (powData.proofOfWork as Array<{ id: string; url: string }>)
+          : [];
+        setUploadedProofs((current) => [...current, ...newProofs]);
+
+        // Keep only files added after this successful upload in the pending queue.
+        setPowFiles((current) =>
+          current.filter((file) => !filesToUpload.includes(file)),
         );
       }
-    }
 
-    console.log("Today's log saved:", data.log);
-  } catch (error) {
-    console.error("Submit error:", error);
-  } finally {
-    setSaving(false);
-  }
-};
+      console.log("Today's log saved:", data.log);
+    } catch (error) {
+      console.error("Submit error:", error);
+    } finally {
+      submittingRef.current = false;
+      setSaving(false);
+    }
+  };
 
   useEffect(() => {
     async function loadToday() {
       try {
-        const response = await fetch("/api/logs/today");
+        const response = await fetch("/api/logs/today", { cache: "no-store" });
 
         if (!response.ok) {
           const error = await response.text();
@@ -194,6 +201,8 @@ export default function TodayClient() {
         if (!log) {
           return;
         }
+
+        setUploadedProofs(log.proofOfWork ?? []);
 
         setClassAttended(log.classAttended);
 
@@ -320,8 +329,10 @@ export default function TodayClient() {
 
       <ProofOfWork
         files={powFiles}
+        uploadedProofs={uploadedProofs}
         onFilesChange={setPowFiles}
-        />
+        disabled={saving}
+      />
 
       <SubmitLog
         completedTasks={completedTasks}
