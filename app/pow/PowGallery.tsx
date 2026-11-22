@@ -68,13 +68,13 @@ const iconNames = {
 } satisfies Record<string, AppIconName>;
 
 function Icon({
-  children,
+  name,
   className = "",
 }: {
-  children: keyof typeof iconNames;
+  name: keyof typeof iconNames;
   className?: string;
 }) {
-  return <AppIcon name={iconNames[children]} className={className} />;
+  return <AppIcon name={iconNames[name]} className={className} />;
 }
 
 export default function PowGallery({ todayDate }: { todayDate: string }) {
@@ -412,7 +412,7 @@ export default function PowGallery({ todayDate }: { todayDate: string }) {
             </p>
           </div>
           <div className="flex items-center gap-1.5 rounded-md bg-[#292931] px-2.5 py-2 font-mono text-[10px] font-bold uppercase tracking-wider text-[#00f59b]">
-            <Icon className="text-[17px]">verified_user</Icon>
+            <Icon name="verified_user" className="text-[17px]" />
             STORED
           </div>
         </div>
@@ -424,7 +424,7 @@ export default function PowGallery({ todayDate }: { todayDate: string }) {
             className="flex min-h-[48px] items-center justify-center gap-1 rounded-lg bg-[#1a1b22] px-2 font-mono text-[11px] font-bold uppercase tracking-wide text-[#b9cbbd] transition hover:bg-[#292931]"
             aria-label="Previous day"
           >
-            <Icon className="text-[19px]">chevron_left</Icon>
+            <Icon name="chevron_left" className="text-[19px]" />
             <span>{formatDate(addDays(selectedDate, -1), { day: "2-digit", month: "short" }).toUpperCase()}</span>
           </button>
           <button
@@ -440,7 +440,7 @@ export default function PowGallery({ todayDate }: { todayDate: string }) {
             onClick={() => void openCalendar()}
             className="flex min-h-[48px] items-center justify-center gap-1 rounded-lg bg-[#1a1b22] px-2 font-mono text-[11px] font-bold uppercase tracking-wide text-[#b9cbbd] transition hover:bg-[#292931]"
           >
-            <Icon className="text-[17px]">calendar_month</Icon>
+            <Icon name="calendar_month" className="text-[17px]" />
             CALENDAR
           </button>
         </div>
@@ -452,7 +452,7 @@ export default function PowGallery({ todayDate }: { todayDate: string }) {
             onClick={() => inputRef.current?.click()}
             className="flex min-h-[50px] items-center justify-center gap-2 rounded-xl bg-[#00f59b] px-3 font-mono text-[12px] font-bold uppercase tracking-wide text-[#003920] transition hover:brightness-105 active:scale-[0.99] disabled:cursor-not-allowed disabled:bg-[#34353e] disabled:text-[#85868e]"
           >
-            <Icon className="text-[20px]">add_a_photo</Icon>
+            <Icon name="add_a_photo" className="text-[20px]" />
             ADD WORK PHOTO
           </button>
           <button
@@ -463,7 +463,7 @@ export default function PowGallery({ todayDate }: { todayDate: string }) {
             }}
             className={`flex min-h-[50px] items-center justify-center gap-1.5 rounded-xl px-3 font-mono text-[11px] font-bold uppercase tracking-wide transition ${selectionMode ? "bg-[#00f59b] text-[#003920]" : "bg-[#292931] text-[#e3e1ec] hover:bg-[#34353e]"}`}
           >
-            <Icon className="text-[18px]">checklist</Icon>
+            <Icon name="checklist" className="text-[18px]" />
             {selectionMode ? "CANCEL" : "SELECT"}
           </button>
         </div>
@@ -511,7 +511,7 @@ export default function PowGallery({ todayDate }: { todayDate: string }) {
         )}
         {!loading && !loadError && photos.length === 0 && (
           <div className="rounded-2xl border border-white/[0.04] bg-[#1a1b22] px-5 py-10 text-center">
-            <div className="mx-auto mb-3 flex h-12 w-12 items-center justify-center rounded-2xl bg-[#292931] text-[#00f59b]"><Icon className="text-[24px]">photo_camera</Icon></div>
+            <div className="mx-auto mb-3 flex h-12 w-12 items-center justify-center rounded-2xl bg-[#292931] text-[#00f59b]"><Icon name="photo_camera" className="text-[24px]" /></div>
             <h2 className="font-semibold">{isToday ? "No photos uploaded today" : "No photos for this date"}</h2>
             <p className="mt-1 text-sm text-[#b9cbbd]">{isToday && !gallery?.canUpload ? "Submit today's log first, then add your study photos." : "Your saved study photos will appear here."}</p>
           </div>
@@ -545,7 +545,7 @@ export default function PowGallery({ todayDate }: { todayDate: string }) {
                       }}
                     />
                     <div data-image-fallback className="absolute inset-0 hidden flex-col items-center justify-center gap-2 bg-[#292931] text-[#b9cbbd]">
-                      <Icon className="text-[28px]">broken_image</Icon>
+                      <Icon name="broken_image" className="text-[28px]" />
                       <span className="font-mono text-[9px] font-bold uppercase">IMAGE UNAVAILABLE</span>
                     </div>
                     <span className="absolute left-2 top-2 rounded-md bg-[#0d0e15]/85 px-2 py-1 font-mono text-[9px] font-bold uppercase tracking-wider text-[#00f59b] backdrop-blur">
@@ -554,10 +554,10 @@ export default function PowGallery({ todayDate }: { todayDate: string }) {
                     <span className="absolute bottom-2 left-2 rounded bg-[#0d0e15]/75 px-1.5 py-1 font-mono text-[10px] text-[#e3e1ec] backdrop-blur">{formatTime(photo.createdAt)}</span>
                     {selectionMode && (
                       <span className={`absolute right-2 top-2 flex h-6 w-6 items-center justify-center rounded-md border ${selected ? "border-[#00f59b] bg-[#00f59b] text-[#003920]" : "border-white/60 bg-[#0d0e15]/55 text-transparent"}`}>
-                        <Icon className="text-[17px]">check</Icon>
+                        <Icon name="check" className="text-[17px]" />
                       </span>
                     )}
-                    {!selectionMode && <span className="absolute bottom-2 right-2 flex h-7 w-7 items-center justify-center rounded-full bg-[#0d0e15]/70 text-[#e3e1ec] opacity-0 backdrop-blur transition group-hover:opacity-100"><Icon className="text-[17px]">open_in_full</Icon></span>}
+                    {!selectionMode && <span className="absolute bottom-2 right-2 flex h-7 w-7 items-center justify-center rounded-full bg-[#0d0e15]/70 text-[#e3e1ec] opacity-0 backdrop-blur transition group-hover:opacity-100"><Icon name="open_in_full" className="text-[17px]" /></span>}
                   </div>
                   <div className="px-2.5 py-2.5">
                     <p className="truncate text-[13px] font-bold">Proof of work photo</p>
@@ -572,7 +572,7 @@ export default function PowGallery({ todayDate }: { todayDate: string }) {
           <>
             {loadMoreError && <p role="alert" className="mb-2 text-center text-xs text-[#ffb4ab]">{loadMoreError}</p>}
             <button type="button" disabled={loadingMore} onClick={() => void loadMore()} className="mt-3 flex min-h-11 w-full items-center justify-center gap-2 rounded-xl bg-[#292931] font-mono text-[11px] font-bold uppercase tracking-wider text-[#e3e1ec] disabled:opacity-60">
-              {loadingMore ? "LOADING PHOTOS…" : loadMoreError ? "RETRY LOADING PHOTOS" : "LOAD MORE PHOTOS"}<Icon className="text-[18px]">expand_more</Icon>
+              {loadingMore ? "LOADING PHOTOS…" : loadMoreError ? "RETRY LOADING PHOTOS" : "LOAD MORE PHOTOS"}<Icon name="expand_more" className="text-[18px]" />
             </button>
           </>
         )}
@@ -580,7 +580,7 @@ export default function PowGallery({ todayDate }: { todayDate: string }) {
 
       <section className="rounded-xl border border-white/[0.03] bg-[#1a1b22] p-3.5">
         <div className="flex items-center justify-between gap-3">
-          <div className="flex items-center gap-3 text-[#00f59b]"><Icon className="text-[21px]">database</Icon><div className="font-mono text-[9px] font-bold uppercase leading-[1.55] tracking-[0.1em] text-[#b9cbbd]">CLOUDINARY STORAGE<br />POSTGRESQL RECORDS</div></div>
+          <div className="flex items-center gap-3 text-[#00f59b]"><Icon name="database" className="text-[21px]" /><div className="font-mono text-[9px] font-bold uppercase leading-[1.55] tracking-[0.1em] text-[#b9cbbd]">CLOUDINARY STORAGE<br />POSTGRESQL RECORDS</div></div>
           <span className="font-mono text-[10px] font-bold uppercase tracking-widest text-[#00f59b]">{gallery?.totalCount ?? 0} STORED</span>
         </div>
       </section>
@@ -600,7 +600,7 @@ export default function PowGallery({ todayDate }: { todayDate: string }) {
             {pendingPhotos.map((photo) => (
               <div key={photo.fingerprint} className="relative h-16 w-16 shrink-0 overflow-hidden rounded-lg bg-[#292931]">
                 <Image src={photo.previewUrl} alt="Selected upload preview" fill sizes="64px" unoptimized className="h-full w-full object-cover" />
-                <button type="button" disabled={uploading} onClick={() => removePendingPhoto(photo.fingerprint)} aria-label={`Remove ${photo.file.name}`} className="absolute right-1 top-1 flex h-5 w-5 items-center justify-center rounded-full bg-[#0d0e15]/85 text-white disabled:opacity-50"><Icon className="text-[15px]">close</Icon></button>
+                <button type="button" disabled={uploading} onClick={() => removePendingPhoto(photo.fingerprint)} aria-label={`Remove ${photo.file.name}`} className="absolute right-1 top-1 flex h-5 w-5 items-center justify-center rounded-full bg-[#0d0e15]/85 text-white disabled:opacity-50"><Icon name="close" className="text-[15px]" /></button>
               </div>
             ))}
           </div>
@@ -618,7 +618,7 @@ export default function PowGallery({ todayDate }: { todayDate: string }) {
           <div className="grid grid-cols-[auto_1fr] gap-2">
             <button type="button" disabled={uploading} onClick={() => { pendingPhotos.forEach((photo) => URL.revokeObjectURL(photo.previewUrl)); setPendingPhotos([]); setUploadError(""); }} className="rounded-xl bg-[#292931] px-4 py-3 font-mono text-[10px] font-bold uppercase tracking-wide text-[#e3e1ec] disabled:opacity-50">CANCEL</button>
             <button type="button" disabled={uploading || !gallery?.canUpload || !isToday} onClick={() => void submitUpload()} className="flex items-center justify-center gap-2 rounded-xl bg-[#00f59b] px-4 py-3 font-mono text-[11px] font-bold uppercase tracking-wide text-[#003920] disabled:cursor-not-allowed disabled:bg-[#34353e] disabled:text-[#85868e]">
-              <Icon className="text-[18px]">cloud_upload</Icon>{uploading ? "UPLOADING…" : `UPLOAD ${pendingPhotos.length} PHOTO${pendingPhotos.length === 1 ? "" : "S"}`}
+              <Icon name="cloud_upload" className="text-[18px]" />{uploading ? "UPLOADING…" : `UPLOAD ${pendingPhotos.length} PHOTO${pendingPhotos.length === 1 ? "" : "S"}`}
             </button>
           </div>
         </section>
@@ -628,9 +628,9 @@ export default function PowGallery({ todayDate }: { todayDate: string }) {
         <div className="fixed inset-0 z-[70] flex items-center justify-center bg-[#0d0e15]/80 p-4 backdrop-blur-sm" onClick={() => setCalendarOpen(false)}>
           <section role="dialog" aria-modal="true" aria-label="Choose a date" className="w-full max-w-[380px] rounded-2xl border border-white/[0.06] bg-[#1a1b22] p-4 shadow-2xl" onClick={(event) => event.stopPropagation()}>
             <div className="mb-4 flex items-center justify-between">
-              <button type="button" onClick={() => setCalendarMonth(addDays(calendarMonth, -1).slice(0, 7) + "-01")} aria-label="Previous month" className="flex h-9 w-9 items-center justify-center rounded-lg bg-[#292931] text-[#e3e1ec]"><Icon>chevron_left</Icon></button>
+              <button type="button" onClick={() => setCalendarMonth(addDays(calendarMonth, -1).slice(0, 7) + "-01")} aria-label="Previous month" className="flex h-9 w-9 items-center justify-center rounded-lg bg-[#292931] text-[#e3e1ec]"><Icon name="chevron_left" /></button>
               <div className="text-center"><h2 className="font-semibold uppercase">{monthLabel}</h2><p className="font-mono text-[9px] font-bold uppercase tracking-wider text-[#b9cbbd]">DATES WITH PHOTOS ARE MARKED</p></div>
-              <button type="button" disabled={calendarMonth.slice(0, 7) >= todayDate.slice(0, 7)} onClick={() => setCalendarMonth(addDays(calendarMonth, 32).slice(0, 7) + "-01")} aria-label="Next month" className="flex h-9 w-9 items-center justify-center rounded-lg bg-[#292931] text-[#e3e1ec] disabled:opacity-30"><Icon>chevron_right</Icon></button>
+              <button type="button" disabled={calendarMonth.slice(0, 7) >= todayDate.slice(0, 7)} onClick={() => setCalendarMonth(addDays(calendarMonth, 32).slice(0, 7) + "-01")} aria-label="Next month" className="flex h-9 w-9 items-center justify-center rounded-lg bg-[#292931] text-[#e3e1ec] disabled:opacity-30"><Icon name="chevron_right" /></button>
             </div>
             <div className="mb-1 grid grid-cols-7 text-center font-mono text-[9px] font-bold uppercase text-[#85868e]">{["M", "T", "W", "T", "F", "S", "S"].map((day, index) => <span key={`${day}${index}`} className="py-2">{day}</span>)}</div>
             <div className="grid grid-cols-7 gap-1">
@@ -656,12 +656,12 @@ export default function PowGallery({ todayDate }: { todayDate: string }) {
         <div className="fixed inset-0 z-[80] flex flex-col items-center justify-center bg-[#090a0f]/95 p-3 backdrop-blur" role="dialog" aria-modal="true" aria-label="Photo viewer" onClick={() => setViewerPhotoId(null)}>
           <div className="mb-3 flex w-full max-w-[800px] items-center justify-between px-1">
             <span className="font-mono text-xs font-bold uppercase tracking-wider text-[#b9cbbd]">{viewerIndex + 1} / {gallery?.totalCount ?? photos.length}</span>
-            <button type="button" onClick={() => setViewerPhotoId(null)} aria-label="Close photo viewer" className="flex h-10 w-10 items-center justify-center rounded-full bg-[#292931] text-white"><Icon>close</Icon></button>
+            <button type="button" onClick={() => setViewerPhotoId(null)} aria-label="Close photo viewer" className="flex h-10 w-10 items-center justify-center rounded-full bg-[#292931] text-white"><Icon name="close" /></button>
           </div>
           <div className="flex min-h-0 w-full max-w-[900px] flex-1 items-center justify-center gap-2" onClick={(event) => event.stopPropagation()}>
-            <button type="button" disabled={viewerIndex <= 0} onClick={() => void navigateViewer(-1)} aria-label="Previous photo" className="flex h-11 w-10 shrink-0 items-center justify-center rounded-full bg-[#292931] text-white disabled:opacity-30"><Icon>chevron_left</Icon></button>
+            <button type="button" disabled={viewerIndex <= 0} onClick={() => void navigateViewer(-1)} aria-label="Previous photo" className="flex h-11 w-10 shrink-0 items-center justify-center rounded-full bg-[#292931] text-white disabled:opacity-30"><Icon name="chevron_left" /></button>
             <Image src={imageUrl(viewerPhoto.url)} alt={`Proof of work photo ${viewerIndex + 1}`} width={1600} height={1200} unoptimized className="max-h-full max-w-full rounded-lg object-contain" />
-            <button type="button" disabled={viewerIndex === photos.length - 1 && !gallery?.hasMore} onClick={() => void navigateViewer(1)} aria-label="Next photo" className="flex h-11 w-10 shrink-0 items-center justify-center rounded-full bg-[#292931] text-white disabled:opacity-30"><Icon>chevron_right</Icon></button>
+            <button type="button" disabled={viewerIndex === photos.length - 1 && !gallery?.hasMore} onClick={() => void navigateViewer(1)} aria-label="Next photo" className="flex h-11 w-10 shrink-0 items-center justify-center rounded-full bg-[#292931] text-white disabled:opacity-30"><Icon name="chevron_right" /></button>
           </div>
           <p className="mt-3 font-mono text-[10px] font-bold uppercase tracking-wider text-[#b9cbbd]">{formatTime(viewerPhoto.createdAt)} IST // STORED</p>
         </div>
